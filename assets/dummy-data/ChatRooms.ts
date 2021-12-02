@@ -7,7 +7,7 @@ export default [{
   }, {
     id: 'u2',
     name: 'Elon Musk',
-    imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png',
+    imageUri: 'assets/images/favicon.png',
   }],
   lastMessage: {
     id: 'm1',
@@ -23,7 +23,7 @@ export default [{
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u3',
-    name: 'Jeff',
+    name: 'Mulenga',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg',
   }],
   lastMessage: {
@@ -40,7 +40,7 @@ export default [{
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u4',
-    name: 'Zuck',
+    name: 'Kalunga',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/zuck.jpeg',
   }],
   lastMessage: {
@@ -56,7 +56,7 @@ export default [{
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u5',
-    name: 'Graham',
+    name: 'Zimba Misheck',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/graham.jpg',
   }],
   lastMessage: {
