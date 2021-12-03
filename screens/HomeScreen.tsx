@@ -11,14 +11,18 @@ export default function TabOneScreen() {
    
     <View style={styles.page}>
         <Pressable style={{
-        backgroundColor: 'white',
+        backgroundColor: 'red',
         height: 50,
-        padding: 10,
-        
+        width: '50%',
+        borderRadius: 25,
+        padding: 15,
+        alignItems: 'center',
+        alignSelf: 'center'
       }}>
         <Text style={{
-          color: 'teal',
+          color: 'white',
           bottom: 4,
+          fontWeight: 'bold'
         }}>Logout</Text>
       </Pressable>
        <View style={styles.accessContainer}>
@@ -49,12 +53,12 @@ const styles = StyleSheet.create({
   },
   accessContainer: {
     backgroundColor: 'orange',
-    height: 40,
+    height: 45,
     width: '100%',
     borderRadius: 20,
-    padding: 13,
+    padding: 17,
     alignSelf: 'center',
-    top: -14,
+    top: 1,
     borderWidth: 1,
     borderColor: 'teal',
     
