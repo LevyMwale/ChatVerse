@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, StyleSheet, FlatList, } from 'react-native';
+import { Text, View, Image, StyleSheet, FlatList, Pressable } from 'react-native';
 import ChatRoomItem from '../components/ChatRoomItem';
 import { MaterialCommunityIcons, MaterialIcons, FontAwesome5, Entypo, FontAwesome  } from '@expo/vector-icons'; 
 
@@ -10,48 +10,18 @@ export default function TabOneScreen() {
 
    
     <View style={styles.page}>
-       <View style={styles.accessContainer}>
-        <Text style={styles.accessText}>
-        </Text>
-        <MaterialCommunityIcons name="party-popper" size={27} color="teal" style={{
-          bottom: 22,
-          left: 9,
-        }} />
-        <MaterialIcons name="payment" size={27} color="teal" style={{
-          bottom: 45,
-          left: 44,
-        }}/>
-        <FontAwesome5 name="shopping-cart" size={24} color="teal" 
-        style={{
-          bottom: 69,
-          left: 77,
-        }}
-        />
-        <MaterialIcons name="library-music" size={27} color="teal" 
-        style={{
-          bottom: 95,
-          left: 116,
-        }}
-        />
-        <FontAwesome5 name="taxi" size={26} color="teal" 
-        style={{
-          bottom: 120,
-          left: 154,
-        }}
-        />
+        <Pressable style={{
+        backgroundColor: 'white',
+        height: 50,
+        padding: 10,
         
-      <Entypo name="location" size={24} color="teal" 
-      style={{
-        bottom: 144,
-        left: 190,
-      }}
-      />
-      <FontAwesome name="hotel" size={25} color="teal" 
-      style={{
-        bottom: 168,
-        left: 229,
-      }}
-      />
+      }}>
+        <Text style={{
+          color: 'teal',
+          bottom: 4,
+        }}>Logout</Text>
+      </Pressable>
+       <View style={styles.accessContainer}>
       </View>
       <FlatList
         data={chatRoomsData}
@@ -79,24 +49,20 @@ const styles = StyleSheet.create({
   },
   accessContainer: {
     backgroundColor: 'orange',
-    height: 35,
-    width: '80%',
-    padding: 4,
-    justifyContent: 'space-between',
+    height: 40,
+    width: '100%',
+    borderRadius: 20,
+    padding: 13,
     alignSelf: 'center',
-    bottom: 1,
-    borderRadius: 18,
+    top: -14,
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: 'teal',
     
   
     
   
     
   },
-  accessText: {
-
-  }
 
 });
 
