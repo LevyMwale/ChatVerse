@@ -47,7 +47,7 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "ChatVerse"
       },
-      "lastPushTimeStamp": "2021-12-03T10:03:33.919Z",
+      "lastPushTimeStamp": "2021-12-03T19:51:57.168Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-200224-deployment/amplify-cfn-templates/auth/ChatVerse-cloudformation-template.json",
         "logicalId": "authChatVerse"
@@ -83,12 +83,11 @@
         "GraphQLAPIEndpointOutput": "https://jowjeaudtbgk5hhn6tqc6tqtbe.appsync-api.sa-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-zdoiq3kiq5f3pemr6ulseceqry"
       },
+      "lastPushTimeStamp": "2021-12-03T19:51:57.171Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-200224-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiChatVerse"
-      },
-      "lastPushTimeStamp": "2021-12-03T10:03:36.298Z",
-      "lastPushDirHash": "Ikmy3ypqLfqR6zpQSjHFP5Eb/Co="
+      }
     }
   }
 }
