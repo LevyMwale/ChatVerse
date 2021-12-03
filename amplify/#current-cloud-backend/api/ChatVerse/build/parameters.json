@@ -1,0 +1,19 @@
+{
+    "AppSyncApiName": "ChatVerse",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authChatVerse",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "S3DeploymentBucket": "amplify-chatverse-staging-200224-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/f9715800e8532375ce10368c79b3ee5e5ef600c3"
+}

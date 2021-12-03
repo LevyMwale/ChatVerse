@@ -6,8 +6,8 @@ export default [{
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u2',
-    name: 'Elon Musk',
-    imageUri: 'assets/images/favicon.png',
+    name: 'Monde',
+    imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png',
   }],
   lastMessage: {
     id: 'm1',
@@ -19,7 +19,7 @@ export default [{
   id: '2',
   users: [{
     id: 'u1',
-    name: 'Vadim',
+    name: 'LLoyd',
     imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
   }, {
     id: 'u3',
