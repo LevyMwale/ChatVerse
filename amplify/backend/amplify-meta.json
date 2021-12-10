@@ -16,7 +16,17 @@
     "ChatVerse": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "ChatVersePostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],
@@ -47,7 +57,7 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "ChatVerse"
       },
-      "lastPushTimeStamp": "2021-12-10T08:14:02.627Z",
+      "lastPushTimeStamp": "2021-12-10T10:18:39.676Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-100114-deployment/amplify-cfn-templates/auth/ChatVerse-cloudformation-template.json",
         "logicalId": "authChatVerse"
@@ -89,6 +99,13 @@
       },
       "lastPushTimeStamp": "2021-12-10T08:14:02.630Z",
       "lastPushDirHash": "riEwB9iqoJrGjdN2ecAQuaqAthc="
+    }
+  },
+  "function": {
+    "ChatVersePostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   }
 }

@@ -55,5 +55,24 @@
     ]
   },
   "breakCircularDependency": true,
-  "dependsOn": []
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "ChatVersePostConfirmation",
+      "triggerProvider": "Cognito",
+      "attributes": [
+        "Arn",
+        "Name"
+      ]
+    }
+  ],
+  "triggers": "{\"PostConfirmation\":[\"custom\"]}",
+  "hostedUI": false,
+  "parentStack": {
+    "Ref": "AWS::StackId"
+  },
+  "authTriggerConnections": [
+    "{\"triggerType\":\"PostConfirmation\",\"lambdaFunctionName\":\"ChatVersePostConfirmation\"}"
+  ],
+  "permissions": []
 }

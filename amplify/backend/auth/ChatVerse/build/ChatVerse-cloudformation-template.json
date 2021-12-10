@@ -5,6 +5,14 @@
     "env": {
       "Type": "String"
     },
+    "functionChatVersePostConfirmationArn": {
+      "Type": "String",
+      "Default": "functionChatVersePostConfirmationArn"
+    },
+    "functionChatVersePostConfirmationName": {
+      "Type": "String",
+      "Default": "functionChatVersePostConfirmationName"
+    },
     "identityPoolName": {
       "Type": "String"
     },
@@ -120,6 +128,21 @@
       "Type": "String"
     },
     "dependsOn": {
+      "Type": "CommaDelimitedList"
+    },
+    "triggers": {
+      "Type": "String"
+    },
+    "hostedUI": {
+      "Type": "String"
+    },
+    "parentStack": {
+      "Type": "String"
+    },
+    "authTriggerConnections": {
+      "Type": "CommaDelimitedList"
+    },
+    "permissions": {
       "Type": "CommaDelimitedList"
     }
   },
