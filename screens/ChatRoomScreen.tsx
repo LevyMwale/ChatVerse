@@ -27,7 +27,7 @@ export default function ChatRoomScreen() {
 
 const styles = StyleSheet.create({
     page: {
-        backgroundColor: '#1F2F35',
+        backgroundColor: 'white',
         flex: 1,
     }
 

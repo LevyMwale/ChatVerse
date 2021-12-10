@@ -155,11 +155,11 @@
     "authChatVerse": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-200224-deployment/amplify-cfn-templates/auth/ChatVerse-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-100114-deployment/amplify-cfn-templates/auth/ChatVerse-cloudformation-template.json",
         "Parameters": {
           "identityPoolName": "testAuthIdentityPool",
           "allowUnauthenticatedIdentities": false,
-          "resourceNameTruncated": "chatve5269761a",
+          "resourceNameTruncated": "chatve7aea9016",
           "userPoolName": "ChatVerse",
           "autoVerifiedAttributes": "email",
           "mfaConfiguration": "OFF",
@@ -177,9 +177,9 @@
           "userpoolClientRefreshTokenValidity": 30,
           "userpoolClientWriteAttributes": "",
           "userpoolClientReadAttributes": "",
-          "userpoolClientLambdaRole": "ChatVe5269761a_userpoolclient_lambda_role",
+          "userpoolClientLambdaRole": "ChatVe7aea9016_userpoolclient_lambda_role",
           "userpoolClientSetAttributes": false,
-          "sharedId": "5269761a",
+          "sharedId": "7aea9016",
           "resourceName": "ChatVerse",
           "authSelections": "identityPoolAndUserPool",
           "serviceName": "Cognito",
@@ -213,7 +213,7 @@
     "apiChatVerse": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-200224-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-100114-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "Parameters": {
           "AppSyncApiName": "ChatVerse",
           "DynamoDBBillingMode": "PAY_PER_REQUEST",
@@ -230,8 +230,8 @@
           "unauthRoleName": {
             "Ref": "UnauthRoleName"
           },
-          "S3DeploymentBucket": "amplify-chatverse-staging-200224-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/f9715800e8532375ce10368c79b3ee5e5ef600c3",
+          "S3DeploymentBucket": "amplify-chatverse-staging-100114-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/03bc4f9bd9809d140bf4bf5bda1eabf5a808b40e",
           "env": "staging"
         }
       }

@@ -1,4 +1,18 @@
 
+type ChatRoom @aws_iam @aws_api_key {
+  id: ID!
+  newMessages: Int
+  LastMessage: Message
+  Messages(filter: ModelMessageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelMessageConnection
+  Users(filter: ModelChatRoomUserFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelChatRoomUserConnection
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  chatRoomLastMessageId: ID
+}
+
 type Message @aws_iam @aws_api_key {
   id: ID!
   content: String!
@@ -9,20 +23,6 @@ type Message @aws_iam @aws_api_key {
   _version: Int!
   _deleted: Boolean
   _lastChangedAt: AWSTimestamp!
-}
-
-type ChatRoom @aws_iam @aws_api_key {
-  id: ID!
-  newMessages: Int
-  LastMessage: Message
-  Messages(filter: ModelMessageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelMessageConnection
-  ChatRoomUsers(filter: ModelChatRoomUserFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelChatRoomUserConnection
-  createdAt: AWSDateTime!
-  updatedAt: AWSDateTime!
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
-  chatRoomLastMessageId: ID
 }
 
 type User @aws_iam @aws_api_key {
@@ -143,7 +143,94 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelMessageConnection @aws_api_key @aws_iam {
+type ModelChatRoomConnection @aws_api_key @aws_iam {
+  items: [ChatRoom!]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelChatRoomFilterInput {
+  id: ModelIDInput
+  newMessages: ModelIntInput
+  and: [ModelChatRoomFilterInput]
+  or: [ModelChatRoomFilterInput]
+  not: ModelChatRoomFilterInput
+  chatRoomLastMessageId: ModelIDInput
+}
+
+type Query {
+  getChatRoom(id: ID!): ChatRoom @aws_api_key @aws_iam
+  listChatRooms(filter: ModelChatRoomFilterInput, limit: Int, nextToken: String): ModelChatRoomConnection @aws_api_key @aws_iam
+  syncChatRooms(filter: ModelChatRoomFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelChatRoomConnection @aws_api_key @aws_iam
+  getMessage(id: ID!): Message @aws_api_key @aws_iam
+  listMessages(filter: ModelMessageFilterInput, limit: Int, nextToken: String): ModelMessageConnection @aws_api_key @aws_iam
+  syncMessages(filter: ModelMessageFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelMessageConnection @aws_api_key @aws_iam
+  getUser(id: ID!): User @aws_api_key @aws_iam
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_api_key @aws_iam
+  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection @aws_api_key @aws_iam
+  getChatRoomUser(id: ID!): ChatRoomUser @aws_api_key @aws_iam
+  listChatRoomUsers(filter: ModelChatRoomUserFilterInput, limit: Int, nextToken: String): ModelChatRoomUserConnection @aws_api_key @aws_iam
+  syncChatRoomUsers(filter: ModelChatRoomUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelChatRoomUserConnection @aws_api_key @aws_iam
+}
+
+input ModelChatRoomConditionInput {
+  newMessages: ModelIntInput
+  and: [ModelChatRoomConditionInput]
+  or: [ModelChatRoomConditionInput]
+  not: ModelChatRoomConditionInput
+  chatRoomLastMessageId: ModelIDInput
+}
+
+input CreateChatRoomInput {
+  id: ID
+  newMessages: Int
+  _version: Int
+  chatRoomLastMessageId: ID
+}
+
+input UpdateChatRoomInput {
+  id: ID!
+  newMessages: Int
+  _version: Int
+  chatRoomLastMessageId: ID
+}
+
+input DeleteChatRoomInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createChatRoom(input: CreateChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
+  updateChatRoom(input: UpdateChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
+  deleteChatRoom(input: DeleteChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
+  createMessage(input: CreateMessageInput!, condition: ModelMessageConditionInput): Message @aws_api_key @aws_iam
+  updateMessage(input: UpdateMessageInput!, condition: ModelMessageConditionInput): Message @aws_api_key @aws_iam
+  deleteMessage(input: DeleteMessageInput!, condition: ModelMessageConditionInput): Message @aws_api_key @aws_iam
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  createChatRoomUser(input: CreateChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam
+  updateChatRoomUser(input: UpdateChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam
+  deleteChatRoomUser(input: DeleteChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam
+}
+
+type Subscription {
+  onCreateChatRoom: ChatRoom @aws_subscribe(mutations: ["createChatRoom"]) @aws_api_key @aws_iam
+  onUpdateChatRoom: ChatRoom @aws_subscribe(mutations: ["updateChatRoom"]) @aws_api_key @aws_iam
+  onDeleteChatRoom: ChatRoom @aws_subscribe(mutations: ["deleteChatRoom"]) @aws_api_key @aws_iam
+  onCreateMessage: Message @aws_subscribe(mutations: ["createMessage"]) @aws_api_key @aws_iam
+  onUpdateMessage: Message @aws_subscribe(mutations: ["updateMessage"]) @aws_api_key @aws_iam
+  onDeleteMessage: Message @aws_subscribe(mutations: ["deleteMessage"]) @aws_api_key @aws_iam
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"]) @aws_api_key @aws_iam
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"]) @aws_api_key @aws_iam
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"]) @aws_api_key @aws_iam
+  onCreateChatRoomUser: ChatRoomUser @aws_subscribe(mutations: ["createChatRoomUser"]) @aws_api_key @aws_iam
+  onUpdateChatRoomUser: ChatRoomUser @aws_subscribe(mutations: ["updateChatRoomUser"]) @aws_api_key @aws_iam
+  onDeleteChatRoomUser: ChatRoomUser @aws_subscribe(mutations: ["deleteChatRoomUser"]) @aws_api_key @aws_iam
+}
+
+type ModelMessageConnection @aws_iam @aws_api_key {
   items: [Message!]!
   nextToken: String
   startedAt: AWSTimestamp
@@ -157,21 +244,6 @@ input ModelMessageFilterInput {
   and: [ModelMessageFilterInput]
   or: [ModelMessageFilterInput]
   not: ModelMessageFilterInput
-}
-
-type Query {
-  getMessage(id: ID!): Message @aws_api_key @aws_iam
-  listMessages(filter: ModelMessageFilterInput, limit: Int, nextToken: String): ModelMessageConnection @aws_api_key @aws_iam
-  syncMessages(filter: ModelMessageFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelMessageConnection @aws_api_key @aws_iam
-  getChatRoom(id: ID!): ChatRoom @aws_api_key @aws_iam
-  listChatRooms(filter: ModelChatRoomFilterInput, limit: Int, nextToken: String): ModelChatRoomConnection @aws_api_key @aws_iam
-  syncChatRooms(filter: ModelChatRoomFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelChatRoomConnection @aws_api_key @aws_iam
-  getUser(id: ID!): User @aws_api_key @aws_iam
-  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_api_key @aws_iam
-  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection @aws_api_key @aws_iam
-  getChatRoomUser(id: ID!): ChatRoomUser @aws_api_key @aws_iam
-  listChatRoomUsers(filter: ModelChatRoomUserFilterInput, limit: Int, nextToken: String): ModelChatRoomUserConnection @aws_api_key @aws_iam
-  syncChatRoomUsers(filter: ModelChatRoomUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelChatRoomUserConnection @aws_api_key @aws_iam
 }
 
 input ModelMessageConditionInput {
@@ -200,78 +272,6 @@ input UpdateMessageInput {
 }
 
 input DeleteMessageInput {
-  id: ID!
-  _version: Int
-}
-
-type Mutation {
-  createMessage(input: CreateMessageInput!, condition: ModelMessageConditionInput): Message @aws_api_key @aws_iam
-  updateMessage(input: UpdateMessageInput!, condition: ModelMessageConditionInput): Message @aws_api_key @aws_iam
-  deleteMessage(input: DeleteMessageInput!, condition: ModelMessageConditionInput): Message @aws_api_key @aws_iam
-  createChatRoom(input: CreateChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
-  updateChatRoom(input: UpdateChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
-  deleteChatRoom(input: DeleteChatRoomInput!, condition: ModelChatRoomConditionInput): ChatRoom @aws_api_key @aws_iam
-  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
-  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
-  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
-  createChatRoomUser(input: CreateChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam
-  updateChatRoomUser(input: UpdateChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam
-  deleteChatRoomUser(input: DeleteChatRoomUserInput!, condition: ModelChatRoomUserConditionInput): ChatRoomUser @aws_api_key @aws_iam
-}
-
-type Subscription {
-  onCreateMessage: Message @aws_subscribe(mutations: ["createMessage"]) @aws_api_key @aws_iam
-  onUpdateMessage: Message @aws_subscribe(mutations: ["updateMessage"]) @aws_api_key @aws_iam
-  onDeleteMessage: Message @aws_subscribe(mutations: ["deleteMessage"]) @aws_api_key @aws_iam
-  onCreateChatRoom: ChatRoom @aws_subscribe(mutations: ["createChatRoom"]) @aws_api_key @aws_iam
-  onUpdateChatRoom: ChatRoom @aws_subscribe(mutations: ["updateChatRoom"]) @aws_api_key @aws_iam
-  onDeleteChatRoom: ChatRoom @aws_subscribe(mutations: ["deleteChatRoom"]) @aws_api_key @aws_iam
-  onCreateUser: User @aws_subscribe(mutations: ["createUser"]) @aws_api_key @aws_iam
-  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"]) @aws_api_key @aws_iam
-  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"]) @aws_api_key @aws_iam
-  onCreateChatRoomUser: ChatRoomUser @aws_subscribe(mutations: ["createChatRoomUser"]) @aws_api_key @aws_iam
-  onUpdateChatRoomUser: ChatRoomUser @aws_subscribe(mutations: ["updateChatRoomUser"]) @aws_api_key @aws_iam
-  onDeleteChatRoomUser: ChatRoomUser @aws_subscribe(mutations: ["deleteChatRoomUser"]) @aws_api_key @aws_iam
-}
-
-type ModelChatRoomConnection @aws_api_key @aws_iam {
-  items: [ChatRoom!]!
-  nextToken: String
-  startedAt: AWSTimestamp
-}
-
-input ModelChatRoomFilterInput {
-  id: ModelIDInput
-  newMessages: ModelIntInput
-  and: [ModelChatRoomFilterInput]
-  or: [ModelChatRoomFilterInput]
-  not: ModelChatRoomFilterInput
-  chatRoomLastMessageId: ModelIDInput
-}
-
-input ModelChatRoomConditionInput {
-  newMessages: ModelIntInput
-  and: [ModelChatRoomConditionInput]
-  or: [ModelChatRoomConditionInput]
-  not: ModelChatRoomConditionInput
-  chatRoomLastMessageId: ModelIDInput
-}
-
-input CreateChatRoomInput {
-  id: ID
-  newMessages: Int
-  _version: Int
-  chatRoomLastMessageId: ID
-}
-
-input UpdateChatRoomInput {
-  id: ID!
-  newMessages: Int
-  _version: Int
-  chatRoomLastMessageId: ID
-}
-
-input DeleteChatRoomInput {
   id: ID!
   _version: Int
 }

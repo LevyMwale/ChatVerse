@@ -64,12 +64,12 @@ function RootNavigator() {
 const HomeHeader = (props) => {
   return (
     <View style={{
-      backgroundColor: '#4C7685',
+      backgroundColor: 'teal',
       flex: 1,
       height: 45,
       borderRadius: 11,
       borderWidth: 1,
-      borderColor: 'orange',
+      borderColor: 'green',
       
 
     }}>
@@ -80,13 +80,13 @@ const HomeHeader = (props) => {
          top: 4,
          right: 15,
          borderWidth: 1,
-         borderColor: 'orange'
+         borderColor: 'teal'
 
 
     }} />
        <Text style={{
          fontSize: 20,
-         fontWeight: 'bold',
+         fontWeight: '400',
          marginHorizontal: 6,
          marginLeft: 98,
          top: -27,
@@ -122,7 +122,7 @@ const HomeHeader = (props) => {
         height: 45,
         borderRadius: 11,
         borderWidth: 1,
-        borderColor: 'orange',
+        borderColor: 'green',
         
   
       }}>
@@ -133,7 +133,7 @@ const HomeHeader = (props) => {
            top: 4,
            right: 15,
            borderWidth: 1,
-           borderColor: 'orange'
+           borderColor: 'teal'
   
   
       }} />

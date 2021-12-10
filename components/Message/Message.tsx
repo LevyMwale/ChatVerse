@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         margin: 10,
         maxWidth: '75%',
         borderWidth: 1,
-        borderColor: 'orange'
+        borderColor: 'green'
     },
     leftContainer: {
         backgroundColor: grey,

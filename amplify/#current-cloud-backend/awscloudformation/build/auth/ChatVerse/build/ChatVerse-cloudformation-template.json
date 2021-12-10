@@ -1,5 +1,5 @@
 {
-  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"AmplifyAdmin\",\"createdWith\":\"7.6.1\",\"stackType\":\"auth-Cognito\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"AmplifyAdmin\",\"createdWith\":\"7.6.3\",\"stackType\":\"auth-Cognito\",\"metadata\":{}}",
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
     "env": {
@@ -211,7 +211,7 @@
         "UserPoolId": {
           "Ref": "UserPool"
         },
-        "ClientName": "chatve5269761a_app_clientWeb",
+        "ClientName": "chatve7aea9016_app_clientWeb",
         "RefreshTokenValidity": {
           "Ref": "userpoolClientRefreshTokenValidity"
         }
@@ -226,7 +226,7 @@
         "UserPoolId": {
           "Ref": "UserPool"
         },
-        "ClientName": "chatve5269761a_app_client",
+        "ClientName": "chatve7aea9016_app_client",
         "GenerateSecret": {
           "Ref": "userpoolClientGenerateSecret"
         },
@@ -263,7 +263,7 @@
               "Fn::Join": [
                 "",
                 [
-                  "upClientLambdaRole5269761a",
+                  "upClientLambdaRole7aea9016",
                   {
                     "Fn::Select": [
                       3,
@@ -331,7 +331,7 @@
             }
           ]
         },
-        "PolicyName": "chatve5269761a_userpoolclient_lambda_iam_policy",
+        "PolicyName": "chatve7aea9016_userpoolclient_lambda_iam_policy",
         "Roles": [
           {
             "Ref": "UserPoolClientRole"
@@ -374,7 +374,7 @@
             }
           ]
         },
-        "PolicyName": "chatve5269761a_userpoolclient_lambda_log_policy",
+        "PolicyName": "chatve7aea9016_userpoolclient_lambda_log_policy",
         "Roles": [
           {
             "Ref": "UserPoolClientRole"

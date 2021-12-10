@@ -4,11 +4,11 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
-type MessageMetaData = {
+type ChatRoomMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type ChatRoomMetaData = {
+type MessageMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
@@ -20,6 +20,19 @@ type ChatRoomUserMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+export declare class ChatRoom {
+  readonly id: string;
+  readonly newMessages?: number;
+  readonly LastMessage?: Message;
+  readonly Messages?: (Message | null)[];
+  readonly Users?: (ChatRoomUser | null)[];
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  readonly chatRoomLastMessageId?: string;
+  constructor(init: ModelInit<ChatRoom, ChatRoomMetaData>);
+  static copyOf(source: ChatRoom, mutator: (draft: MutableModel<ChatRoom, ChatRoomMetaData>) => MutableModel<ChatRoom, ChatRoomMetaData> | void): ChatRoom;
+}
+
 export declare class Message {
   readonly id: string;
   readonly content: string;
@@ -29,19 +42,6 @@ export declare class Message {
   readonly updatedAt?: string;
   constructor(init: ModelInit<Message, MessageMetaData>);
   static copyOf(source: Message, mutator: (draft: MutableModel<Message, MessageMetaData>) => MutableModel<Message, MessageMetaData> | void): Message;
-}
-
-export declare class ChatRoom {
-  readonly id: string;
-  readonly newMessages?: number;
-  readonly LastMessage?: Message;
-  readonly Messages?: (Message | null)[];
-  readonly ChatRoomUsers?: (ChatRoomUser | null)[];
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  readonly chatRoomLastMessageId?: string;
-  constructor(init: ModelInit<ChatRoom, ChatRoomMetaData>);
-  static copyOf(source: ChatRoom, mutator: (draft: MutableModel<ChatRoom, ChatRoomMetaData>) => MutableModel<ChatRoom, ChatRoomMetaData> | void): ChatRoom;
 }
 
 export declare class User {

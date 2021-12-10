@@ -1,15 +1,15 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-chatverse-staging-200224-authRole",
-      "UnauthRoleArn": "arn:aws:iam::482064413714:role/amplify-chatverse-staging-200224-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::482064413714:role/amplify-chatverse-staging-200224-authRole",
-      "Region": "sa-east-1",
-      "DeploymentBucketName": "amplify-chatverse-staging-200224-deployment",
-      "UnauthRoleName": "amplify-chatverse-staging-200224-unauthRole",
-      "StackName": "amplify-chatverse-staging-200224",
-      "StackId": "arn:aws:cloudformation:sa-east-1:482064413714:stack/amplify-chatverse-staging-200224/c477bd10-53aa-11ec-8ef9-0ad48afa410a",
-      "AmplifyAppId": "d1r7bepd0l0kjp"
+      "AuthRoleName": "amplify-chatverse-staging-100114-authRole",
+      "UnauthRoleArn": "arn:aws:iam::482064413714:role/amplify-chatverse-staging-100114-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::482064413714:role/amplify-chatverse-staging-100114-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-chatverse-staging-100114-deployment",
+      "UnauthRoleName": "amplify-chatverse-staging-100114-unauthRole",
+      "StackName": "amplify-chatverse-staging-100114",
+      "StackId": "arn:aws:cloudformation:us-east-1:482064413714:stack/amplify-chatverse-staging-100114/f22fd770-58d6-11ec-9046-0ae4c6fb675b",
+      "AmplifyAppId": "dhk702uh37bvi"
     },
     "categories": {
       "auth": {

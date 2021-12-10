@@ -12,7 +12,7 @@ $util.qr($ctx.stash.put("hasAuth", true))
   #set( $isAuthorized = true )
 #end
 #if( $util.authType() == "IAM Authorization" )
-  #set( $adminRoles = ["sa-east-1_d5csfRJEY_Full-access/CognitoIdentityCredentials","sa-east-1_d5csfRJEY_Manage-only/CognitoIdentityCredentials"] )
+  #set( $adminRoles = ["us-east-1_X8j7iIZvR_Full-access/CognitoIdentityCredentials","us-east-1_X8j7iIZvR_Manage-only/CognitoIdentityCredentials"] )
   #foreach( $adminRole in $adminRoles )
     #if( $ctx.identity.userArn.contains($adminRole) && $ctx.identity.userArn != $ctx.stash.authRole && $ctx.identity.userArn != $ctx.stash.unauthRole )
       #return($util.toJson({}))

@@ -1,15 +1,15 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-chatverse-staging-200224-authRole",
-      "UnauthRoleArn": "arn:aws:iam::482064413714:role/amplify-chatverse-staging-200224-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::482064413714:role/amplify-chatverse-staging-200224-authRole",
-      "Region": "sa-east-1",
-      "DeploymentBucketName": "amplify-chatverse-staging-200224-deployment",
-      "UnauthRoleName": "amplify-chatverse-staging-200224-unauthRole",
-      "StackName": "amplify-chatverse-staging-200224",
-      "StackId": "arn:aws:cloudformation:sa-east-1:482064413714:stack/amplify-chatverse-staging-200224/c477bd10-53aa-11ec-8ef9-0ad48afa410a",
-      "AmplifyAppId": "d1r7bepd0l0kjp"
+      "AuthRoleName": "amplify-chatverse-staging-100114-authRole",
+      "UnauthRoleArn": "arn:aws:iam::482064413714:role/amplify-chatverse-staging-100114-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::482064413714:role/amplify-chatverse-staging-100114-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-chatverse-staging-100114-deployment",
+      "UnauthRoleName": "amplify-chatverse-staging-100114-unauthRole",
+      "StackName": "amplify-chatverse-staging-100114",
+      "StackId": "arn:aws:cloudformation:us-east-1:482064413714:stack/amplify-chatverse-staging-100114/f22fd770-58d6-11ec-9046-0ae4c6fb675b",
+      "AmplifyAppId": "dhk702uh37bvi"
     }
   },
   "auth": {
@@ -39,17 +39,17 @@
         ]
       },
       "output": {
-        "UserPoolId": "sa-east-1_dy4di1jod",
-        "AppClientIDWeb": "57seto4efqjmc12fop6fpvh2c9",
-        "AppClientID": "3f5ho630450vfuj6jutdm406g2",
-        "IdentityPoolId": "sa-east-1:50f442c3-442b-4fd6-abb7-84f9556639f4",
-        "UserPoolArn": "arn:aws:cognito-idp:sa-east-1:482064413714:userpool/sa-east-1_dy4di1jod",
+        "UserPoolId": "us-east-1_DVERWFKxO",
+        "AppClientIDWeb": "60b2cc444sl1nsrnvs8q1bueif",
+        "AppClientID": "572lda2c198bepifollreudogr",
+        "IdentityPoolId": "us-east-1:694277ab-8661-48f6-a724-d523770d0a45",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:482064413714:userpool/us-east-1_DVERWFKxO",
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "ChatVerse"
       },
-      "lastPushTimeStamp": "2021-12-03T19:51:57.168Z",
+      "lastPushTimeStamp": "2021-12-10T08:14:02.627Z",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-200224-deployment/amplify-cfn-templates/auth/ChatVerse-cloudformation-template.json",
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-100114-deployment/amplify-cfn-templates/auth/ChatVerse-cloudformation-template.json",
         "logicalId": "authChatVerse"
       }
     }
@@ -79,15 +79,16 @@
             }
           ]
         },
-        "GraphQLAPIIdOutput": "3c6anuqcd5fdzeotill6avrzhe",
-        "GraphQLAPIEndpointOutput": "https://jowjeaudtbgk5hhn6tqc6tqtbe.appsync-api.sa-east-1.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-zdoiq3kiq5f3pemr6ulseceqry"
+        "GraphQLAPIIdOutput": "5wggrc2n2jaxlpi6smrcou44qe",
+        "GraphQLAPIEndpointOutput": "https://pkop7xx5jvgp3m65g26kzzmvzy.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-ouj6motkyjd55b6pqqljgv4jd4"
       },
-      "lastPushTimeStamp": "2021-12-03T19:51:57.171Z",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-200224-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chatverse-staging-100114-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiChatVerse"
-      }
+      },
+      "lastPushTimeStamp": "2021-12-10T08:14:02.630Z",
+      "lastPushDirHash": "riEwB9iqoJrGjdN2ecAQuaqAthc="
     }
   }
 }

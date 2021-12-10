@@ -8,6 +8,6 @@
             "Outputs.UserPoolId"
         ]
     },
-    "S3DeploymentBucket": "amplify-chatverse-staging-200224-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/f9715800e8532375ce10368c79b3ee5e5ef600c3"
+    "S3DeploymentBucket": "amplify-chatverse-staging-100114-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/03bc4f9bd9809d140bf4bf5bda1eabf5a808b40e"
 }

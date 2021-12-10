@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
       borderRadius: 30,
       marginRight: 10,
       borderWidth: 1,
-      borderColor: 'white',
+      borderColor: 'teal',
     },
     badgeContainer: {
       backgroundColor: '#2C3E50',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between'
     },
     name: {
-      fontWeight: 'bold',
+      fontWeight: '400',
       fontSize: 16,
       marginBottom: 3,
       top: -6,
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
   
     },
     text: {
-      fontSize: 16,
-      color: 'white'
+      fontSize: 13,
+      color: 'grey'
     },
   });
 

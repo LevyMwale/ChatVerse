@@ -1,32 +1,54 @@
 import * as React from 'react';
-import { Text, View, Image, StyleSheet, FlatList, Pressable } from 'react-native';
+import { useState } from 'react';
+import { Text, View, Image, StyleSheet, FlatList, Pressable, TextInput, } from 'react-native';
+import { Auth } from 'aws-amplify'
+import OtherFunctions from '../components/OtherFunctions/OtherFunctions';
 import ChatRoomItem from '../components/ChatRoomItem';
 import { MaterialCommunityIcons, MaterialIcons, FontAwesome5, Entypo, FontAwesome  } from '@expo/vector-icons'; 
 
 import chatRoomsData from '../assets/dummy-data/ChatRooms';
 
 export default function TabOneScreen() {
+
+  const logOut = () => {
+    Auth.signOut();
+  }
+
   return (
 
-   
+
     <View style={styles.page}>
-        <Pressable style={{
-        backgroundColor: 'red',
-        height: 50,
-        width: '50%',
-        borderRadius: 25,
-        padding: 15,
+      <OtherFunctions />
+        <Pressable onPress={logOut} style={{
+        backgroundColor: 'teal',
+        height: 33,
+        width: '20%',
+        borderRadius: 18,
         alignItems: 'center',
-        alignSelf: 'center'
+        alignSelf: 'flex-start',
+        marginTop: 4,
+        justifyContent: 'center',
+        top: 8,
+        left: 8,
+        
       }}>
         <Text style={{
-          color: 'white',
-          bottom: 4,
-          fontWeight: 'bold'
+          color: '#FEF9E7',
+          fontWeight: '700'
         }}>Logout</Text>
-      </Pressable>
-       <View style={styles.accessContainer}>
-      </View>
+      </Pressable> 
+      <View style={styles.inputContainer}>     
+            <TextInput style={{
+            marginHorizontal: 24,
+            fontSize: 15,
+            fontWeight: '800',
+            color: 'teal'
+            }}/>
+            <MaterialCommunityIcons name="cloud-search-outline" size={24} color="blue" style={{
+              bottom: 25,
+              left: 9
+            }} />
+            </View>  
       <FlatList
         data={chatRoomsData}
         renderItem={({ item }) => <ChatRoomItem chatRoom={item} />}
@@ -41,36 +63,32 @@ export default function TabOneScreen() {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: '#1F2F35'
+    backgroundColor: 'white'
   },
   text: {
     fontWeight: 'bold',
-    color: '#FEF9E7',
+    color: 'teal',
     fontSize: 17,
     left: 7,
     top: -2,
   
   },
-  accessContainer: {
-    backgroundColor: 'orange',
-    height: 45,
-    width: '100%',
-    borderRadius: 20,
-    padding: 17,
-    alignSelf: 'center',
-    top: 1,
-    borderWidth: 1,
-    borderColor: 'teal',
-    
+inputContainer: {
+  backgroundColor: 'white',
+  height: 33,
+  width: '72%',
+  alignSelf: 'flex-end',
+  right: 9,
+  bottom: 25,
+  borderRadius: 17,
+  borderWidth: 1,
+  borderColor: 'teal'
   
-    
-  
-    
-  },
+},
+input: {
+  color: 'black'
+}
 
 });
-
-
-
 
 
